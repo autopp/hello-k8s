@@ -1,0 +1,22 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: hello-k8s-backend
+  labels:
+    app: hello-k8s-backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-k8s-backend
+  template:
+    metadata:
+      labels:
+        app: hello-k8s-backend
+    spec:
+      containers:
+      - name: hello-k8s-backend
+        image: hello-k8s-backend
+        imagePullPolicy: IfNotPresent
+        ports:
+          - containerPort: 4567

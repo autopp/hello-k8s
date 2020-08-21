@@ -1,0 +1,12 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: hello-k8s-backend
+spec:
+  type: LoadBalancer
+  selector:
+    app: hello-k8s-backend
+  ports:
+  - protocol: TCP
+    port: 4569
+    targetPort: 4567
